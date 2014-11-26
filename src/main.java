@@ -36,13 +36,13 @@ public class main {
                 year_avg.year(file);
                 break;
             case 3:
-
+                most_common_by_frequency.frequency(file);
                 break;
             case 4:
                 most_common.common(file);
                 break;
             case 5:
-                most_common_by_frequency.frequency(file);
+                most_common_by_frequency.ten_most_frequency(file);
                 break;
             default:
                 break;
