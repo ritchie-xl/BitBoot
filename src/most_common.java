@@ -40,7 +40,8 @@ public class most_common {
             System.out.println("Word\t\tTotal Years: ");
             for(Node n:list) {
                 if (count < 10) {
-                    System.out.println(n.getWord() + ' ' + n.getCount());
+                //    System.out.println(n.getWord() + ' ' + n.getCount());
+                    System.out.printf("%s %.0f\n",n.getWord(),n.getCount());
                     count = count + 1;
                 }
             }

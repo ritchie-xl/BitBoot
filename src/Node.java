@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class Node implements Comparator<Node>,Comparable<Node>{
     private String word;
-    private int count;
+    private double count;
 
     Node(){
 
@@ -20,11 +20,11 @@ public class Node implements Comparator<Node>,Comparable<Node>{
         return word;
     }
 
-    public int getCount(){
+    public double getCount(){
         return count;
     }
 
-    public void setCount(int n){
+    public void setCount(double n){
         count = n;
     }
 
@@ -37,7 +37,7 @@ public class Node implements Comparator<Node>,Comparable<Node>{
     @Override
     public int compare(Node n1, Node n2) {
         // TODO Auto-generated method stub
-        return n1.count - n2.count;
+        return Double.compare(n1.count,n2.count);
     }
 
 }

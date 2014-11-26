@@ -47,10 +47,10 @@ public class most_common_by_frequency{
         Collections.reverse(list);
         int count = 0;
         System.out.println("The most 10 most common words by frequency are:");
-        System.out.println("Word\t\tTotal Frequency:");
+        System.out.println("Word\tTotal Frequency:");
         for (Node n : list) {
             if (count < 10) {
-                System.out.println(n.getWord() + ' ' + n.getCount());
+                System.out.println(n.getWord() + " " + n.getCount());
                 count++;
             }
         }
@@ -59,17 +59,20 @@ public class most_common_by_frequency{
 
     public static void frequency(String file) throws IOException{
         List<Node> list = load_data(file);
-        int med = list.get(list.size()/2).getCount();
+        double med = list.get(list.size()/2).getCount();
 
-        int min = list.get(0).getCount();
-        int max = list.get(0).getCount();
+        double min = list.get(0).getCount();
+        double max = list.get(0).getCount();
         double avg;
         double std;
         double sum=0;
         double total=0;
 
         for(Node n:list){
-            sum = sum + n.getCount();
+            double tmp = n.getCount();
+            if(Double.compare(tmp,min) < 0) { min = tmp;}
+            if(Double.compare(tmp,max) > 0) { max = tmp;}
+            sum = sum + tmp;
             total ++;
         }
 
@@ -77,12 +80,12 @@ public class most_common_by_frequency{
         double sum_std =0;
 
         for(Node n:list){
-            sum_std = sum_std + Math.pow((n.getCount()-avg),2);
+            sum_std = sum_std + (n.getCount()-avg)*(n.getCount()-avg);
         }
 
         std = Math.sqrt(sum_std/total);
 
-        System.out.println("Min\tMax\t\tMed\tAvg\tStd");
-        System.out.printf("%d\t%d\t\t%d\t%.2f\t%.2f\n",min,max,med,avg,std);
+        System.out.println("Min\tMax\t\t\t\tMed\tAvg\t\t\tStd");
+        System.out.printf("%.0f\t%.0f\t\t%.0f\t%.2f\t%.2f\n",min,max,med,avg,std);
     }
 }
