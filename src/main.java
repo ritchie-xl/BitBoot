@@ -13,8 +13,8 @@ public class main {
 
         // Prompt for options
         System.out.println("Please choose you option:");
-        System.out.println("Find out the information of words: 1");
-        System.out.println("Find out the information of years: 2");
+        System.out.println("Find out the information of words' length: 1");
+        System.out.println("Find out the information of years' count: 2");
         System.out.println("Find out the information of frequency: 3");
         System.out.println("Find out the most 10 common words by years: 4");
         System.out.println("Find out the most 10 common words by frequency: 5");
@@ -27,22 +27,28 @@ public class main {
         //Find the detail of the words
         switch (opt){
             case 0:
+                // Quit the program
                 System.out.println("System quit!");
                 System.exit(1);
             case 1:
-                word_length.word(file);
+                // Compute all the information of words' length
+                word_length.word(file); // Execution Time: 30 sec
                 break;
             case 2:
-                year_avg.year(file);
+                // Computer the information of years
+                year_avg.year(file); //Execution Time: 60 sec
                 break;
             case 3:
-                most_common_by_frequency.frequency(file);
+                // Computer the information of the words' frequency
+                most_common_by_frequency.frequency(file); // Execution Time: 35sec
                 break;
             case 4:
-                most_common.common(file);
+                // Find out the most common words according to the years if apprears
+                most_common.common(file); // Execution Time: 32 sec
                 break;
             case 5:
-                most_common_by_frequency.ten_most_frequency(file);
+                // Find out the most common words according to the frequency
+                most_common_by_frequency.ten_most_frequency(file); // Execution Time 33 sec
                 break;
             default:
                 break;
