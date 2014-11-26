@@ -9,7 +9,8 @@ public class main {
     public static void main(String[] args) throws IOException{
 
         // The file path of the data
-        String file = "/Users/ritchie/Desktop/bitbootcamp/sql/practise/week1/googlebooks.txt";
+        String file = "/Users/ritchie/Desktop/bitbootcamp/sql/practise/week1/googlebooks.txt"; // For test
+        // String file = args[0];
 
         // Prompt for options
         System.out.println("Please choose you option:");

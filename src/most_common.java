@@ -23,7 +23,7 @@ public class most_common {
             while((line = br.readLine())!=null){
                 String[] terms = line.split("\t");
                 current = terms[0];
-//                int number = Integer.parseInt(terms[2]);
+//              int number = Integer.parseInt(terms[2]);
 //				System.out.println(current+" "+number);
                 if(current.equals(previous)){
                     list.get(index).setCount(list.get(index).getCount() + 1) ;
