@@ -11,8 +11,8 @@ import java.lang.Object;
  * Created by ritchie on 11/24/14.
  */
 public class year_avg {
-    public static void main(String[] args) throws IOException{
-        String file = "/Users/ritchie/Desktop/bitbootcamp/sql/practise/week1/googlebooks.txt";
+    public static void year(String file_path) throws IOException{
+        String file = file_path;
         String line = null;
         List<Integer> year = new ArrayList<Integer>();
 
@@ -48,18 +48,17 @@ public class year_avg {
                 num = num + 1;
             }
             double avg = sum / num;
-            double std = 0;
+            double std;
 
             for (Integer i : year){
                 sum = (i-avg)*(i-avg);
             }
             std = Math.sqrt(sum/num);
 
-            System.out.println("The years medium is : " + med);
-            System.out.println("The average years of words is: " + avg);
-            System.out.println("The min years of words is :" + min);
-            System.out.println("The max years of words is " + max);
-            System.out.println("The STD of years is " + std);
+            System.out.println("Min\tMax\tMed\tAvg\tStd");
+            System.out.print(min+"\t"+max+"\t"+med+"\t");
+            System.out.printf("%.2f\t",avg);
+            System.out.printf("%.2f\n",std);
         }catch(FileNotFoundException e){
             System.out.println("File Not Found!");
         }

@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class most_common_by_frequency{
 
-    public static void main(String args[]) throws IOException {
-        String file = "/Users/ritchie/Desktop/bitbootcamp/sql/practise/week1/googlebooks.txt";
+    public static void frequency(String file_path) throws IOException {
+        String file = file_path;
         String line = null;
         List<Node> list = new ArrayList<Node>();
         try{
@@ -37,6 +37,8 @@ public class most_common_by_frequency{
             Collections.sort(list, new Node());
             Collections.reverse(list);
             int count = 0;
+            System.out.println("The most 10 most common words by frequency are:");
+            System.out.println("Word\t\tTotal Frequency:");
             for(Node n:list) {
                 if (count < 10) {
                     System.out.println(n.getWord() + ' ' + n.getCount());
