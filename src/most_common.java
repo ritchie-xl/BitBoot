@@ -37,11 +37,11 @@ public class most_common {
             Collections.reverse(list);
             int count = 0;
             System.out.println("The most 10 common words by year are:");
-            System.out.println("Word\t\tTotal Years: ");
+            System.out.println("Word\tTotal Years: ");
             for(Node n:list) {
                 if (count < 10) {
                 //    System.out.println(n.getWord() + ' ' + n.getCount());
-                    System.out.printf("%s %.0f\n",n.getWord(),n.getCount());
+                    System.out.printf("%s\t%.0f\n",n.getWord(),n.getCount());
                     count = count + 1;
                 }
             }

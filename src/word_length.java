@@ -61,10 +61,7 @@ public class word_length {
             System.out.print("\t"+ list.get(list.size()-1));
             System.out.print("\t"+list.get(list.size()/2));
             System.out.printf("\t%.2f", find_avg(list));
-            System.out.printf("\t%.2f", find_std(list));
-
-
-
+            System.out.printf("\t%.2f\n", find_std(list));
         }catch(FileNotFoundException e){
             System.out.println("FIle Not Found!");
         }

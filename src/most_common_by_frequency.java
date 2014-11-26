@@ -50,7 +50,7 @@ public class most_common_by_frequency{
         System.out.println("Word\tTotal Frequency:");
         for (Node n : list) {
             if (count < 10) {
-                System.out.println(n.getWord() + " " + n.getCount());
+                System.out.println(n.getWord() + "\t" + n.getCount());
                 count++;
             }
         }
@@ -85,7 +85,7 @@ public class most_common_by_frequency{
 
         std = Math.sqrt(sum_std/total);
 
-        System.out.println("Min\tMax\t\t\t\tMed\tAvg\t\t\tStd");
-        System.out.printf("%.0f\t%.0f\t\t%.0f\t%.2f\t%.2f\n",min,max,med,avg,std);
+        System.out.println("Min\tMax\tMed\tAvg\tStd");
+        System.out.printf("%.0f\t%.0f\t%.0f\t%.2f\t%.2f\n",min,max,med,avg,std);
     }
 }
