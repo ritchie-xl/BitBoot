@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class word_length {
 
+    // Compute the average value of a list
     public static double find_avg(List<Integer> l){
         double sum = 0;
         double num = 0;
@@ -22,6 +23,7 @@ public class word_length {
         return sum/num;
     }
 
+    // Compute the standard deviation of a list
     public static double find_std(List<Integer> l){
         double avg = find_avg(l);
         double sum = 0;
@@ -33,6 +35,7 @@ public class word_length {
         return Math.sqrt(sum/num);
     }
 
+
     public static void  word(String file_path) throws IOException{
         String file = file_path;
         String line = null;
@@ -41,6 +44,8 @@ public class word_length {
         String current = null;
         String previous = null;
         int index = 0;
+        int min = 0;
+        int max = 0;
 
         try{
             FileReader fr = new FileReader(file);
