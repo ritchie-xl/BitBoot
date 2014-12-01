@@ -1,8 +1,8 @@
 BitBoot
 =======
-Version 1.0 12/01/2014 ~
-Author: Lei Xia
-Email: lxia1@stevens.edu
+1. Version 1.0 12/01/2014 ~
+2. Author: Lei Xia
+3. Email: lxia1@stevens.edu
 
 I. File List
 ============
@@ -11,10 +11,10 @@ I. File List
 3. mysql.sql
 4. most_common.java
 5. most_common_by_frequency.java
-Node.java
-Node_for_avg.java
-word_length.java
-year.java
+6. Node.java
+7. Node_for_avg.java
+8. word_length.java
+9. year.java
 
 Program can be built using default make argument in Eclipse/Intelliji IDEA
 
