@@ -7,10 +7,10 @@ Email: lxia1@stevens.edu
 I. File List
 ============
 1. main.java
-hive.sql
-mysql.sql
-most_common.java
-most_common_by_frequency.java
+2. hive.sql
+3. mysql.sql
+4. most_common.java
+5. most_common_by_frequency.java
 Node.java
 Node_for_avg.java
 word_length.java
