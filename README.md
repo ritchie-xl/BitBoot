@@ -6,7 +6,7 @@ Email: lxia1@stevens.edu
 
 I. File List
 ============
-main.java
+1. main.java
 hive.sql
 mysql.sql
 most_common.java
