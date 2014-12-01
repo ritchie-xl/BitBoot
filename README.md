@@ -34,9 +34,9 @@ III, Project Detail
 ===================
 1. Project Name: Google Ngram
 2. Description: Analyze the ngram data from Google to find out all the detail of the data,including:
-  *  the information of all the words(min, max, med, avg, std, etc)
+  *  the information of all the words' length(min, max, med, avg, std, etc)
   *  the information of all the words' frequency(min,max,med,avg,std,etc)
-  *  the information of all the words' year' count(min, max, med, avg, std,etc)
+  *  the information of all the total year the word apprears(min, max, med, avg, std,etc)
   *  the most common words according to its years' count
   *  the most common words according to its total frequency
 
