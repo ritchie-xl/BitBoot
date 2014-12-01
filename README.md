@@ -1,6 +1,6 @@
 BitBoot
 =======
-Version 1.0 12/01/2014 \t
+Version 1.0 12/01/2014 ~
 Author: Lei Xia
 Email: lxia1@stevens.edu
 
