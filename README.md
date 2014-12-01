@@ -22,12 +22,12 @@ II.How to run
 =============
 1. For Java program, first locate the data file path, then compile the program,
 simply run the program in the command line by typing following in the shell:
-$java main [input_data_file_path]
+ * java main [input_data_file_path]
 or run the program in Eclipse or Intelliji IDEA by simply clicking the run button, then
 follow the prompt of the program
 2. For Hive query, first locate the data file in HDFS, then run the Hive script by
 typing following:
-$hive -e f hive.sql
+ * hive -e f hive.sql
 3. For mysql script, the same as above
 
 III, Project Detail
