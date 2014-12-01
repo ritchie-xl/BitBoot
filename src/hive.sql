@@ -8,7 +8,7 @@ comment 'this is the table for google ngram data'
 row format delimited fields terminated by '\t';
 
 -- Load data into the table ngram
-load data inpath 'hdfs://user/cloudera/bitboot/weeks/googlebooks.txt'
+load data inpath '/user/cloudera/bitboot/weeks/googlebooks.txt'
 into table ngram;
 
 -- Create view to save the word and its length
