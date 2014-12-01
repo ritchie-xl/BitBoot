@@ -41,6 +41,7 @@ III, Project Detail
   *  the most common words according to its total frequency
 
 3. Parameters:
-Input: the file path of the data. Eg, >>java main ./file_path
+Input: the file path of the data. 
+ * Eg, $java main ./file_path
 Output: display of the result according to the user's choose
 
