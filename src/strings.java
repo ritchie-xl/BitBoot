@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by ritchie on 11/24/14.
  */
-public class word_length {
+public class strings {
 
     // Compute the average value of a list
     public static double find_avg(List<Integer> list){ //TODO
@@ -25,12 +25,12 @@ public class word_length {
     }
 
     // Compute the standard deviation of a list
-    public static double find_std(List<Integer> l){ //TODO
-        double avg = find_avg(l);
-        double sum = 0;//TODO
-        double num = 0;
+    public static double find_std(List<Integer> list){ //TODO
+        double avg = find_avg(list);
+        double sum = 0;//TODO -- Done
+        int num = 0;
         // TODO double retVal;
-        for(Integer i:l){
+        for(Integer i:list){
             sum = sum + (i-avg)*(i-avg);
             num ++;
         }
@@ -40,7 +40,7 @@ public class word_length {
     //To-Do: comment
     public static void summarize(String filePath) throws IOException{
         String file = filePath;
-        String line = null; // ToDO
+        String line; // TODO -- Done
         List<Integer> list = new ArrayList<Integer>();
 
         String current = null;

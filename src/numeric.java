@@ -10,7 +10,7 @@ import java.lang.Object;
 /**
  * Created by ritchie on 11/24/14.
  */
-public class year_avg {
+public class numeric {
     public static void year(String file_path) throws IOException{
         String file = file_path;
         String line = null;

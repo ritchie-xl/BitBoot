@@ -1,4 +1,5 @@
-import java.io.IOException;
+import java.io.*;
+import java.nio.Buffer;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Scanner;
     5, 3rd party library to summarize the data -- apache.mat/colt
     6, for median,check length is odd or even
     7, save the average before compute for std
-    8, check the argument of main
+    8, check the argument of main -- Done
     9, change the input of all the sub functions from the file to column
     10, change the name of all the sub functions to make it more readable
     11, add comment in the code
@@ -27,16 +28,62 @@ public class main {
     public static void main(String[] args) throws IOException{
 
         // The file path of the data
-        // Todo : arguments
+        // Todo : arguments -- Done
         String file = null;
         if(args.length == 0){
             System.out.println("Please input the file path of the dataset!");
+            System.out.println("Eg: java main [filePath]");
+            System.exit(1);
         }else{
             file = args[0];
         }
+        // System.out.println(file);
         //String file = "/Users/ritchie/Desktop/bitbootcamp/sql/practise/week1/googlebooks.txt";
 
-        // Parse the data column by column
+        // TODO : Parse the data column by column and save all the data into files
+
+        // Read users' input and create the files for each column, named col1.txt, col2.txt, col3.txt.....
+        System.out.println("Please enter how many column you want to split for the file: ");
+        Scanner num = new Scanner(System.in);
+        int numColumn = num.nextInt();
+        String[] columnFiles = new String[numColumn];
+        for(int i=0;i<numColumn;i++){
+            String columnName = "col" + String.valueOf(i) + ".txt";
+            columnFiles[i] = columnName;
+        }
+
+        /*
+        for(String i: columnFiles){
+            System.out.println(i);
+        }
+        */
+
+        // Parse all the data and save the data into the columnFils
+        String line;
+        try{
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            while((line=br.readLine())!=null){
+                String[] terms = line.split("\t");
+                for(int i=0;i<terms.length;i++){
+                    File columnFile = new File(columnFiles[i]);
+                    // Create new file if not exists
+                    if(!columnFile.isFile()){
+                        columnFile.createNewFile();
+                    }
+                    // Append the column data in the columnFile
+                    FileWriter fw = new FileWriter(columnFile.getName(),true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.write(terms[i]);
+                    bw.write("\n");
+                    bw.close();
+                }
+            }
+        }catch(FileNotFoundException e){
+            System.out.println("File Not Found!");
+            System.exit(1);
+        }
+
 
         // Prompt for options
         System.out.println("Please choose you option:");
@@ -59,11 +106,11 @@ public class main {
                 System.exit(1);
             case 1:
                 // Compute all the information of words' length
-                word_length.summarize(file); // Execution Time: 30 sec -- ToDO
+                strings.summarize(file); // Execution Time: 30 sec -- ToDO
                 break;
             case 2:
                 // Computer the information of years
-                year_avg.year(file); //Execution Time: 60 sec //TODO change name of function
+                numeric.year(file); //Execution Time: 60 sec //TODO change name of function
                 break;                                         // TODO change the parameter of the input
             case 3:
                 // Computer the information of the words' frequency
