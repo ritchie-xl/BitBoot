@@ -3,7 +3,7 @@
  */
 import java.util.Comparator;
 
-public class Node implements Comparator<Node>,Comparable<Node>{
+public class Node implements Comparator<Node>,Comparable<Node>{ // TODO hashtable
     private String word;
     private double count;
 

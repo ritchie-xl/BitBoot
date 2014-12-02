@@ -4,14 +4,39 @@ import java.util.Scanner;
 /**
  * Created by ritchie on 11/26/14.
  */
+
+/* TODO
+    1, check singleton in java
+    2, Log4j
+    3, jUnit
+    4, hash table, heap, priority queue
+    5, 3rd party library to summarize the data -- apache.mat/colt
+    6, for median,check length is odd or even
+    7, save the average before compute for std
+    8, check the argument of main
+    9, change the input of all the sub functions from the file to column
+    10, change the name of all the sub functions to make it more readable
+    11, add comment in the code
+    12, when computing avg, check the list if it's empty
+    13, change the logic of the program
+    14, parse the data from right to left to avoid
+    15, check the fill rate
+ */
 public class main {
 
     public static void main(String[] args) throws IOException{
 
         // The file path of the data
-        // Test Path
+        // Todo : arguments
+        String file = null;
+        if(args.length == 0){
+            System.out.println("Please input the file path of the dataset!");
+        }else{
+            file = args[0];
+        }
         //String file = "/Users/ritchie/Desktop/bitbootcamp/sql/practise/week1/googlebooks.txt";
-        String file = args[0];
+
+        // Parse the data column by column
 
         // Prompt for options
         System.out.println("Please choose you option:");
@@ -34,12 +59,12 @@ public class main {
                 System.exit(1);
             case 1:
                 // Compute all the information of words' length
-                word_length.word(file); // Execution Time: 30 sec
+                word_length.summarize(file); // Execution Time: 30 sec -- ToDO
                 break;
             case 2:
                 // Computer the information of years
-                year_avg.year(file); //Execution Time: 60 sec
-                break;
+                year_avg.year(file); //Execution Time: 60 sec //TODO change name of function
+                break;                                         // TODO change the parameter of the input
             case 3:
                 // Computer the information of the words' frequency
                 most_common_by_frequency.frequency(file); // Execution Time: 35sec
