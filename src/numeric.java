@@ -3,17 +3,23 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.lang.Object;
 
-/**
- * Created by ritchie on 11/24/14.
- */
 public class numeric {
-    public static void year(String file_path) throws IOException{
-        String file = file_path;
-        String line = null;
+
+    public static int findMedian(List<Integer> numList){
+        int size = numList.size();
+        int retVal;
+        if(size%2 == 0){
+            retVal = (numList.get(size/2) + numList.get(size/2-1))/2;
+        }else{
+            retVal = numList.get(size/2);
+        }
+        return retVal;
+    }
+
+    public static void summarize(String colFile) throws IOException{
+        /*
         List<Integer> year = new ArrayList<Integer>();
 
         try{
@@ -40,25 +46,46 @@ public class numeric {
             Collections.sort(year);
             int max = year.get(year.size()-1);
             int min = year.get(0);
+            */
+        int sum=0;
+        int count=0;
+        String term;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        List<Integer> numList = new ArrayList<Integer>();
+        try{
+            FileReader fr = new FileReader(colFile);
+            BufferedReader br = new BufferedReader(fr);
 
-            double sum = 0;
-            int num = 0;
-            for(Integer i:year){
-                sum = sum + i;
-                num = num + 1;
+            while((term = br.readLine())!=null){
+                int number = Integer.parseInt(term);
+                sum = sum + number;
+                count ++;
+                numList.add(number);
+                if(number < min){
+                    min = number;
+                }
+
+                if(number > max){
+                    max = number;
+                }
             }
-            double avg = sum / num;
+            if(count == 0){
+                System.out.println("The file is empty, please try another file!");
+                System.exit(1);
+            }
+            double avg = sum / count;
             double std;
+            double sumStd=0;
 
-            for (Integer i : year){
-                sum = (i-avg)*(i-avg);
+            for (Integer i : numList){
+                sumStd = (i-avg)*(i-avg);
             }
-            std = Math.sqrt(sum/num);
+            std = (double)Math.sqrt(sumStd/count);
 
-            System.out.println("Min\tMax\tMed\tAvg\tStd");
-            System.out.print(min+"\t"+max+"\t"+med+"\t");
-            System.out.printf("%.2f\t",avg);
-            System.out.printf("%.2f\n",std);
+            int med = findMedian(numList);
+
+            System.out.printf("%d\t%d\t%d\t%.2f\t%.2f\n",min,max,med,avg,std);
         }catch(FileNotFoundException e){
             System.out.println("File Not Found!");
         }

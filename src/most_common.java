@@ -10,15 +10,15 @@ import java.util.List;
  * Created by ritchie on 11/23/14.
  */
 public class most_common {
-    public static void common(String file_path) throws IOException {
-        String file = file_path;
-        String line = null;
+    public static void common(String filePath) throws IOException {
+        String file = filePath;
+        String line;
         List<Node> list = new ArrayList<Node>();
         try{
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String previous = null;
-            String current = null;
+            String current;
             int index = -1;
             while((line = br.readLine())!=null){
                 String[] terms = line.split("\t");
@@ -36,7 +36,7 @@ public class most_common {
             Collections.sort(list, new Node());
             Collections.reverse(list);
             int count = 0;
-            System.out.println("The most 10 common words by year are:");
+            System.out.println("The most 10 common words by summarize are:");
             System.out.println("Word\tTotal Years: ");
             for(Node n:list) {
                 if (count < 10) {

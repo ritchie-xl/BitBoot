@@ -2,46 +2,85 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by ritchie on 11/24/14.
  */
 public class strings {
 
-    // Compute the average value of a list
-    public static double find_avg(List<Integer> list){ //TODO
-        double sum = 0;//TODO
-        double num = 0;
-        //TODO double retVal;
-
-        for(Integer i:list){
-            sum = sum + i;
-            num ++;//TODO list.size()
-        }
-        return sum/num;
-    }
-
     // Compute the standard deviation of a list
-    public static double find_std(List<Integer> list){ //TODO
-        double avg = find_avg(list);
+    public static double findStd(Hashtable<String, Integer> table, double average){ //TODO
         double sum = 0;//TODO -- Done
         int num = 0;
         // TODO double retVal;
-        for(Integer i:list){
-            sum = sum + (i-avg)*(i-avg);
+        double retVal;
+        for(Integer i : table.values()){
+            sum = sum + (i-average)*(i-average);
             num ++;
         }
-        return Math.sqrt(sum/num);
+        retVal = (double)Math.sqrt(sum/num);
+        return retVal;
     }
 
+    public static int findMed(Hashtable<String, Integer> table){
+        int retVal=0;
+
+        List<Integer> list = new ArrayList<Integer>(table.values());
+        int size = list.size();
+        int mid = list.size()/2;
+        if(mid == 0){
+            retVal = (list.get(mid-1) + list.get(mid));
+        }else{
+            retVal = list.get(mid);
+        }
+        return retVal;
+    }
+
+    // To find out the most 10 common word in the data
+    public void mostCommon(String filePath) throws IOException{
+
+        Hashtable<String, Integer> table = new Hashtable<String, Integer>();
+        String term;
+
+        int count = 0;
+        try{
+            FileReader fr = new FileReader(filePath);
+            BufferedReader br = new BufferedReader(fr);
+
+            while((term = br.readLine())!=null) {
+                if (count <= 100000) {
+                    String termLowercase = term.toLowerCase();
+
+                    if (!table.containsKey(termLowercase)) {
+                        table.put(termLowercase, 1);
+                    } else {
+                        table.put(termLowercase, table.get(termLowercase) + 1);
+                    }
+                    count++;
+                }else{ // Find the most common 100 in 100000 lines
+                    PriorityQueue<Map<String, Integer>> PQ =
+                            new PriorityQueue<Map<String, Integer>>(100, new Comparator<String>()
+                            {
+                                public int compare(String key1, String key2){
+                                    return table.get(key1) - table.get(key2);
+                                }
+                            });
+
+                }
+            }
+        }catch(FileNotFoundException ffe){
+            System.out.println("File Not Found!");
+        }
+
+    }
     //To-Do: comment
     public static void summarize(String filePath) throws IOException{
-        String file = filePath;
+        /*
         String line; // TODO -- Done
-        List<Integer> list = new ArrayList<Integer>();
+        // List<Integer> list = new ArrayList<Integer>();
+
+
 
         String current = null;
         String previous = null;
@@ -72,6 +111,50 @@ public class strings {
         }catch(FileNotFoundException e){
             System.out.println("FIle Not Found!");
         }
+        */
 
+        int sum=0;
+        int count = 1 ;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        String termLowercase;
+        Hashtable<String, Integer> list = new Hashtable<String, Integer>();
+        String term;
+
+        try{
+            FileReader fr = new FileReader(filePath);
+            BufferedReader br = new BufferedReader(fr);
+
+
+            while((term =br.readLine())!=null){
+
+                termLowercase = term.toLowerCase();
+                int tmp = termLowercase.length();
+
+                if(!list.containsKey(termLowercase)) {
+                    if (tmp < min) {
+                        min = tmp;
+                    }
+
+                    if (tmp > max) {
+                        max = tmp;
+                    }
+
+                    sum = sum + tmp;
+                    count++;
+
+                    list.put(termLowercase, tmp);
+                }
+            }
+        }catch(FileNotFoundException ffe){
+            System.out.println("File Not Found!");
+        }
+
+        double avg = sum/count;
+        double std = findStd(list,avg);
+        int med = findMed(list);
+        System.out.printf("%d\t%d\t%d\t%.2f\t%.2f\n", min, max, med, avg, std);
     }
+
+
 }

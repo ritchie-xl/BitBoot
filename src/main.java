@@ -1,5 +1,4 @@
 import java.io.*;
-import java.nio.Buffer;
 import java.util.Scanner;
 
 /**
@@ -58,7 +57,7 @@ public class main {
         }
         */
 
-        // Parse all the data and save the data into the columnFils
+        // Parse all the data and save the data into multiple files
         String line;
         try{
             FileReader fr = new FileReader(file);
@@ -86,6 +85,7 @@ public class main {
 
 
         // Prompt for options
+        /*
         System.out.println("Please choose you option:");
         System.out.println("Find out the information of words' length: 1");
         System.out.println("Find out the information of years' count: 2");
@@ -98,6 +98,7 @@ public class main {
         Scanner sn = new Scanner(System.in);
         int opt = sn.nextInt();
         System.out.println("The option you chose is " + opt);
+
         //Find the detail of the words
         switch (opt){
             case 0:
@@ -110,7 +111,7 @@ public class main {
                 break;
             case 2:
                 // Computer the information of years
-                numeric.year(file); //Execution Time: 60 sec //TODO change name of function
+                numeric.summerize(file); //Execution Time: 60 sec //TODO change name of function
                 break;                                         // TODO change the parameter of the input
             case 3:
                 // Computer the information of the words' frequency
@@ -128,7 +129,27 @@ public class main {
                 break;
 
         }
+        */
 
+        System.out.println("Analysing the data, please wait.......");
+        System.out.println("Col\tData\tMin\tMax\tMed\tAvg\tStd");
+        int colNum = 0;
+        for(String colFile: columnFiles){
+            FileReader fr = new FileReader(colFile);
+            BufferedReader br = new BufferedReader(fr);
+            String term;
+            if ((term = br.readLine())!=null){
+                if(checkDatatype.isNumeric(term)){
+                    System.out.print(colNum+"\t"+"Numeric"+"\t");
+                    numeric.summarize(colFile);
+                }else{
+                    System.out.print(colNum+"\t"+"String"+"\t");
+                    strings.summarize(colFile);
+                }
+
+            }
+            colNum++;
+        }
     }
 
 }
