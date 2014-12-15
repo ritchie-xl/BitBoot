@@ -36,10 +36,6 @@ public class main {
         }else{
             file = args[0];
         }
-        // System.out.println(file);
-        //String file = "/Users/ritchie/Desktop/bitbootcamp/sql/practise/week1/googlebooks.txt";
-
-        // TODO : Parse the data column by column and save all the data into files
 
         // Read users' input and create the files for each column, named col1.txt, col2.txt, col3.txt.....
         System.out.println("Please enter how many column you want to split for the file: ");
@@ -50,12 +46,6 @@ public class main {
             String columnName = "col" + String.valueOf(i) + ".txt";
             columnFiles[i] = columnName;
         }
-
-        /*
-        for(String i: columnFiles){
-            System.out.println(i);
-        }
-        */
 
         // Parse all the data and save the data into multiple files
         String line;
@@ -83,54 +73,6 @@ public class main {
             System.exit(1);
         }
 
-
-        // Prompt for options
-        /*
-        System.out.println("Please choose you option:");
-        System.out.println("Find out the information of words' length: 1");
-        System.out.println("Find out the information of years' count: 2");
-        System.out.println("Find out the information of frequency: 3");
-        System.out.println("Find out the most 10 common words by years: 4");
-        System.out.println("Find out the most 10 common words by frequency: 5");
-        System.out.println("Quit: 0");
-
-        // Read users' option
-        Scanner sn = new Scanner(System.in);
-        int opt = sn.nextInt();
-        System.out.println("The option you chose is " + opt);
-
-        //Find the detail of the words
-        switch (opt){
-            case 0:
-                // Quit the program
-                System.out.println("System quit!");
-                System.exit(1);
-            case 1:
-                // Compute all the information of words' length
-                strings.summarize(file); // Execution Time: 30 sec -- ToDO
-                break;
-            case 2:
-                // Computer the information of years
-                numeric.summerize(file); //Execution Time: 60 sec //TODO change name of function
-                break;                                         // TODO change the parameter of the input
-            case 3:
-                // Computer the information of the words' frequency
-                most_common_by_frequency.frequency(file); // Execution Time: 35sec
-                break;
-            case 4:
-                // Find out the most common words according to the years if apprears
-                most_common.common(file); // Execution Time: 32 sec
-                break;
-            case 5:
-                // Find out the most common words according to the frequency
-                most_common_by_frequency.ten_most_frequency(file); // Execution Time 33 sec
-                break;
-            default:
-                break;
-
-        }
-        */
-
         System.out.println("Analysing the data, please wait.......");
         System.out.println("Col\tData\tMin\tMax\tMed\tAvg\tStd");
         int colNum = 0;
@@ -146,7 +88,6 @@ public class main {
                     System.out.print(colNum+"\t"+"String"+"\t");
                     strings.summarize(colFile);
                 }
-
             }
             colNum++;
         }

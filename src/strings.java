@@ -11,15 +11,14 @@ public class strings {
 
     // Compute the standard deviation of a list
     public static double findStd(Hashtable<String, Integer> table, double average){ //TODO
-        double sum = 0;//TODO -- Done
+        double sum = 0;
         int num = 0;
-        // TODO double retVal;
         double retVal;
         for(Integer i : table.values()){
             sum = sum + (i-average)*(i-average);
             num ++;
         }
-        retVal = (double)Math.sqrt(sum/num);
+        retVal = Math.sqrt(sum/num);
         return retVal;
     }
 
@@ -28,7 +27,7 @@ public class strings {
 
         List<Integer> list = new ArrayList<Integer>(table.values());
         int size = list.size();
-        int mid = list.size()/2;
+        int mid = size/2;
         if(mid == 0){
             retVal = (list.get(mid-1) + list.get(mid));
         }else{
@@ -36,11 +35,10 @@ public class strings {
         }
         return retVal;
     }
-
+    Hashtable<String, Integer> table = new Hashtable<String, Integer>();
     // To find out the most 10 common word in the data
     public void mostCommon(String filePath) throws IOException{
 
-        Hashtable<String, Integer> table = new Hashtable<String, Integer>();
         String term;
 
         int count = 0;
@@ -59,15 +57,15 @@ public class strings {
                     }
                     count++;
                 }else{ // Find the most common 100 in 100000 lines
-                    PriorityQueue<Map<String, Integer>> PQ =
-                            new PriorityQueue<Map<String, Integer>>(100, new Comparator<String>()
+                    PriorityQueue<String> PQ =
+                            new PriorityQueue<String>(100, new Comparator<String>()
                             {
                                 public int compare(String key1, String key2){
                                     return table.get(key1) - table.get(key2);
                                 }
                             });
-
                 }
+                count ++;
             }
         }catch(FileNotFoundException ffe){
             System.out.println("File Not Found!");
@@ -77,7 +75,6 @@ public class strings {
     //To-Do: comment
     public static void summarize(String filePath) throws IOException{
         /*
-        String line; // TODO -- Done
         // List<Integer> list = new ArrayList<Integer>();
 
 
