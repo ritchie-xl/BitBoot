@@ -1,15 +1,11 @@
 import java.io.*;
 import java.util.Scanner;
 
-/**
- * Created by ritchie on 11/26/14.
- */
-
 /* TODO
     1, check singleton in java
     2, Log4j
     3, jUnit
-    4, hash table, heap, priority queue
+    4, hash table, heap, priority queue -- done
     5, 3rd party library to summarize the data -- apache.mat/colt
     6, for median,check length is odd or even
     7, save the average before compute for std
@@ -22,12 +18,11 @@ import java.util.Scanner;
     14, parse the data from right to left to avoid
     15, check the fill rate
  */
-public class main {
+public class runFileMemorizer {
 
     public static void main(String[] args) throws IOException{
 
         // The file path of the data
-        // Todo : arguments -- Done
         String file = null;
         if(args.length == 0){
             System.out.println("Please input the file path of the dataset!");
@@ -58,7 +53,9 @@ public class main {
                     File columnFile = new File(columnFiles[i]);
                     // Create new file if not exists
                     if(!columnFile.isFile()){
-                        columnFile.createNewFile();
+                        if(!columnFile.createNewFile()){
+                            System.out.println("Creating file failed!");
+                        }
                     }
                     // Append the column data in the columnFile
                     FileWriter fw = new FileWriter(columnFile.getName(),true);
