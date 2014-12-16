@@ -10,15 +10,15 @@ import java.util.Scanner;
     6, for median,check length is odd or even
     7, save the average before compute for std
     8, check the argument of main -- Done
-    9, change the input of all the sub functions from the file to column
-    10, change the name of all the sub functions to make it more readable
-    11, add comment in the code
+    9, change the input of all the sub functions from the file to column -- done
+    10, change the name of all the sub functions to make it more readable -- done
+    11, add comment in the code -- in progress
     12, when computing avg, check the list if it's empty
     13, change the logic of the program
     14, parse the data from right to left to avoid
     15, check the fill rate
  */
-public class runFileMemorizer {
+public class fileSummarize {
 
     public static void main(String[] args) throws IOException{
 
@@ -54,7 +54,7 @@ public class runFileMemorizer {
                     // Create new file if not exists
                     if(!columnFile.isFile()){
                         if(!columnFile.createNewFile()){
-                            System.out.println("Creating file failed!");
+                            System.out.println("Create file failed!");
                         }
                     }
                     // Append the column data in the columnFile
@@ -84,10 +84,14 @@ public class runFileMemorizer {
                 }else{
                     System.out.print(colNum+"\t"+"String"+"\t");
                     strings.summarize(colFile);
+
+                    System.out.println("The most 10 common words are:");
+                    strings.mostCommon(colFile);
                 }
             }
             colNum++;
         }
+
     }
 
 }
